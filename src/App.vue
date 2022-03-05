@@ -1,30 +1,38 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+    <div id="wrapper">
+        <sidebar></sidebar>
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <Header></Header>
+                <router-view/>
+            </div>
+            <!-- End of Main Content -->
+            <Footer></Footer>
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <scroll-top></scroll-top>
+    <logout-modal></logout-modal>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import ScrollTop from '@/components/ScrollTop.vue'
+import LogoutModal from '@/components/LogoutModal.vue'
+import Header from './components/Header.vue'
+import Sidebar from '@/components/Sidebar.vue'
+import Footer from './components/Footer.vue'
 
-#nav {
-  padding: 30px;
+export default {
+  name: 'App',
+  components: {
+    ScrollTop,
+    LogoutModal,
+    Header,
+    Sidebar,
+    Footer
+  }
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
